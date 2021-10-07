@@ -1,0 +1,307 @@
+$accent-color: #46C6C6;
+
+$font-weights:(
+  "regular": 400,
+  "medium": 500,
+  "bold": 700
+);
+
+#resaltar{
+  position: relative;
+  /* text-emphasis-color: #555; */
+  /* background-color: #46C6C6; */
+  /* padding: 4px; */
+  /* margin: -4px; */
+
+  &:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 105%;
+    height: 110%;
+    z-index: -1; /* Place the pseudo element right under the content */
+    /* top: -5px; */
+    left: -10px;
+    background: linear-gradient(to top,$accent-color 100%, transparent 100%);
+    /* animation-delay: 700ms; */
+    animation-name: highlight;
+    animation-duration: 0.75s;
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: alternate; Make the animation run back and forth */
+  }
+}
+
+
+
+@keyframes highlight {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+
+  50% {
+    width: 0;
+    opacity: 0;
+  }
+
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+
+}
+
+nav{
+  width: 100%;
+  position: absolute;
+  backdrop-filter: blur(3px);
+  border:none;
+
+  ul{padding:0;}
+
+  ul li{
+    list-style: none;
+    font-size: 20px;
+    padding:10px;
+  }
+
+  a{
+    display: block;
+    position: relative;
+    padding: 0.2em 0;
+    
+    color: black;
+    text-decoration:none;
+    transition-duration: 200ms;
+  }
+}
+
+img{
+  height: auto;
+  width: 50%;
+}
+
+#nav-container{
+  display:flex;
+/*   width:600px; */
+  justify-content: space-around;
+  margin: auto;
+  font-weight: 200;
+}
+
+
+
+
+
+nav a:hover::after,
+nav a:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: $accent-color;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+
+#nav-container ul{
+  display: flex;
+}
+
+#welcome-section{
+  display:flex;
+  justify-content: center;
+  
+  flex-direction:column;
+/*   align-items:center; */
+  height: 100vh;
+  max-width: 1400px;
+  margin:auto;
+  padding: 0 20px;
+
+}
+
+#welcome-container{
+  line-height: 1.2;
+  max-width: 600px;
+  padding-bottom: 30px;
+}
+
+.links a{
+  color:$accent-color;
+  padding-right: 20px;
+}
+
+.links a:hover{
+  color:$accent-color;
+  padding-right: 20px;
+}
+
+h2{
+  font-size: 16px;
+  color: $accent-color;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.container{
+  max-width: 1400px;
+  margin:auto;
+  padding: 0 20px;
+  padding-bottom:20px;
+
+  
+}
+
+.background-container{
+  line-height: 1.5;
+  display:flex;
+  justify-content:flex-end;
+}
+
+.description{
+  width:100%;
+  max-width: 700px;
+/*   margin-top:5px; */
+  padding-left:80px;
+}
+
+h1{
+  font-weight: 600;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+p{
+  font-weight: 200;
+  
+}
+
+.skills-section h3{
+  font-weight: 200;
+  margin-top: 13px;
+  
+}
+
+.skills-description{
+/*   margin-top:2px; */
+  
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.skills-description>* {
+  flex: 1 1 140px;
+}
+
+ul li{
+  list-style: none;
+  padding-left: 0;
+  font-weight: 200;
+  padding-bottom: 4px;
+}
+
+ul{
+  padding-left: 0;
+}
+
+.experience-description{
+  font-weight: 200;
+  
+}
+
+h3{
+  font-size: 16px;
+}
+
+.place-date{
+  display:flex;
+  justify-content: space-between;
+}
+
+.place-date p, h3{
+  margin-bottom: 0px;
+  
+}
+
+.place-job{
+   margin-top: 5px;
+}
+
+.des-img{
+  display:flex;
+  justify-content: space-between;
+}
+
+footer{
+  display:flex;
+  padding-top: 40px;
+  width:100%;
+}
+
+p a{
+  color:$accent-color;
+  text-decoration: none;
+}
+
+.emoji{
+  margin-right: 10px;
+}
+
+.tag{
+  margin-right: 4px;
+  font-size: 15px;
+  line-height: 30px;
+  font-weight: 200;
+  color:  $accent-color;
+  border: 2px solid  $accent-color;
+  border-radius: 10px;
+  background-color: white;
+  margin-top: 20px;
+  padding: 4px 10px;
+  transition          : all 0.2s ease-in-out; 
+  -o-transition       : all 0.2s ease-in-out;
+  -moz-transition     : all 0.2s ease-in-out;
+  -webkit-transition  : all 0.2s ease-in-out;
+}
+
+.tag:hover{
+  color: white;
+  background-color:  $accent-color;
+}
+
+
+@media only screen and (max-width: 1000px) {
+  .background-container{
+    line-height: 1.5;
+    display:flex;
+    flex-direction: column;
+    justify-content:flex-end;
+  }
+
+  .des-img{
+    flex-direction: column;
+  }
+  img{
+    padding-top: 20px;
+    width: 100%;
+  }
+
+  .description{
+    width:auto;
+    max-width: 700px;
+  /*   margin-top:5px; */
+    padding-left:0px;
+  }
+}
