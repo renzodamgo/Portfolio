@@ -1,4 +1,22 @@
 $accent-color: #46C6C6;
+$bg-color:whitesmoke;
+$text-color: rgb(46, 46, 46);
+
+.all{
+  background-color: $bg-color;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin theme($ligth-theme:true){
+  @if $ligth-theme{
+
+  }
+}
 
 $font-weights:(
   "regular": 400,
@@ -61,7 +79,7 @@ nav{
 
   ul li{
     list-style: none;
-    font-size: 20px;
+    font-size: clamp(1rem, 0.125rem + 2vw, 1.25rem);
     padding:10px;
   }
 
@@ -70,7 +88,7 @@ nav{
     position: relative;
     padding: 0.2em 0;
     
-    color: black;
+    color: $text-color;
     text-decoration:none;
     transition-duration: 200ms;
   }
@@ -152,6 +170,10 @@ h2{
   text-transform: uppercase;
 }
 
+h3{
+  color: $text-color;
+}
+
 .container{
   max-width: 1400px;
   margin:auto;
@@ -176,6 +198,8 @@ h2{
 
 h1{
   font-weight: 600;
+  font-size: clamp(1.25rem, 0.2rem + 2.4vw, 2rem);
+  color: $text-color;
 }
 
 .bold{
@@ -184,7 +208,7 @@ h1{
 
 p{
   font-weight: 200;
-  
+  color: $text-color;
 }
 
 .skills-section h3{
@@ -210,6 +234,7 @@ ul li{
   padding-left: 0;
   font-weight: 200;
   padding-bottom: 4px;
+  color: $text-color;
 }
 
 ul{
@@ -267,7 +292,7 @@ p a{
   color:  $accent-color;
   border: 2px solid  $accent-color;
   border-radius: 10px;
-  background-color: white;
+  // background-color: none;
   margin-top: 20px;
   padding: 4px 10px;
   transition          : all 0.2s ease-in-out; 
