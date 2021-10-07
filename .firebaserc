@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "portfolio-10ff9": {
+      "hosting": {
+        "Portfolio": [
+          "portfolio-10ff9"
+        ]
+      }
+    }
+  }
+}

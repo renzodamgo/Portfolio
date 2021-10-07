@@ -30,7 +30,6 @@
               "src/favicon.ico",
               "src/assets",
               "src/assets/img/*"
-
             ],
             "styles": [
               "src/styles.scss"
@@ -105,6 +104,10 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
