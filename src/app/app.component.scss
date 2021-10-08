@@ -1,4 +1,15 @@
-$accent-color: #46C6C6;
+@import '../styles.scss';
+
+.all{
+  background-color: var(--bg-color);
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 $font-weights:(
   "regular": 400,
@@ -22,7 +33,7 @@ $font-weights:(
     z-index: -1; /* Place the pseudo element right under the content */
     /* top: -5px; */
     left: -10px;
-    background: linear-gradient(to top,$accent-color 100%, transparent 100%);
+    background: linear-gradient(to top,var(--accent-color) 100%, transparent 100%);
     /* animation-delay: 700ms; */
     animation-name: highlight;
     animation-duration: 0.75s;
@@ -54,14 +65,14 @@ $font-weights:(
 nav{
   width: 100%;
   position: absolute;
-  backdrop-filter: blur(3px);
+  // backdrop-filter: blur(3px);
   border:none;
 
   ul{padding:0;}
 
   ul li{
     list-style: none;
-    font-size: 20px;
+    font-size: clamp(1rem, 0.125rem + 2vw, 1.25rem);
     padding:10px;
   }
 
@@ -70,7 +81,7 @@ nav{
     position: relative;
     padding: 0.2em 0;
     
-    color: black;
+    color: var(--text-color);
     text-decoration:none;
     transition-duration: 200ms;
   }
@@ -87,11 +98,8 @@ img{
   justify-content: space-around;
   margin: auto;
   font-weight: 200;
+  z-index: 1;
 }
-
-
-
-
 
 nav a:hover::after,
 nav a:focus::after {
@@ -106,7 +114,7 @@ nav a::after {
   left: 0;
   width: 100%;
   height: 0.1em;
-  background-color: $accent-color;
+  background-color: var(--accent-color);
   opacity: 0;
   transition: opacity 300ms, transform 300ms;
 }
@@ -114,6 +122,13 @@ nav a::after {
 
 #nav-container ul{
   display: flex;
+}
+
+.toggle-container{
+  position: absolute;
+  z-index: 9999;
+  right: 20px;
+  top: 20px;
 }
 
 #welcome-section{
@@ -136,20 +151,24 @@ nav a::after {
 }
 
 .links a{
-  color:$accent-color;
+  color:var(--accent-color);
   padding-right: 20px;
 }
 
 .links a:hover{
-  color:$accent-color;
+  color:var(--accent-color);
   padding-right: 20px;
 }
 
 h2{
   font-size: 16px;
-  color: $accent-color;
+  color: var(--accent-color);
   font-weight: bold;
   text-transform: uppercase;
+}
+
+h3{
+  color: var(--text-color);
 }
 
 .container{
@@ -176,6 +195,8 @@ h2{
 
 h1{
   font-weight: 600;
+  font-size: clamp(1.25rem, 0.2rem + 2.4vw, 2rem);
+  color: var(--text-color);
 }
 
 .bold{
@@ -184,7 +205,7 @@ h1{
 
 p{
   font-weight: 200;
-  
+  color: var(--text-color);
 }
 
 .skills-section h3{
@@ -210,6 +231,7 @@ ul li{
   padding-left: 0;
   font-weight: 200;
   padding-bottom: 4px;
+  color: var(--text-color);
 }
 
 ul{
@@ -251,7 +273,7 @@ footer{
 }
 
 p a{
-  color:$accent-color;
+  color:var(--accent-color);
   text-decoration: none;
 }
 
@@ -264,10 +286,10 @@ p a{
   font-size: 15px;
   line-height: 30px;
   font-weight: 200;
-  color:  $accent-color;
-  border: 2px solid  $accent-color;
+  color:  var(--accent-color);
+  border: 2px solid  var(--accent-color);
   border-radius: 10px;
-  background-color: white;
+  // background-color: none;
   margin-top: 20px;
   padding: 4px 10px;
   transition          : all 0.2s ease-in-out; 
@@ -278,7 +300,7 @@ p a{
 
 .tag:hover{
   color: white;
-  background-color:  $accent-color;
+  background-color:  var(--accent-color);
 }
 
 
@@ -304,4 +326,66 @@ p a{
   /*   margin-top:5px; */
     padding-left:0px;
   }
+
+  label {
+    display: none;
+  }
+}
+
+input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+  margin: 0;
+}
+
+label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 52px;
+	height: 27px;
+	background: grey;
+	float: right;
+	border-radius: 100px;
+	position: relative;
+}
+
+label:after {
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 20px;
+	height: 20px;
+	background: var(--accent-color);
+	border-radius: 90px;
+	transition: 0.3s;
+}
+
+input:checked + label {
+	background: rgb(75, 75, 75);
+}
+
+input:checked + label:after {
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+  background: var(--accent-color);
+
+
+}
+
+label:active:after {
+	background: var(--accent-color);
+
+	width: 45px;
+}
+
+
+
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
 }

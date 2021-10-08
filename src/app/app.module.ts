@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
+import { CamComponent } from './projects/cam/cam.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CamComponent
   ],
   imports: [
     BrowserModule,
