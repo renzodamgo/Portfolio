@@ -1,26 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { fader, slider } from './route-animations';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  animations: [
-    slider 
-  ]
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.scss'],
 })
-export class AppComponent implements OnInit {
-  title = 'Portfolio';
+export class AboutComponent implements OnInit {
+
+  constructor() { }
 
   ngOnInit(): void {
-    // console.log("das")
     this.changueTheme();
     this.scrollObserver();
-  }
-
-  prepareRoute(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation']
   }
 
   changueTheme(): void {
@@ -68,4 +59,5 @@ export class AppComponent implements OnInit {
       appearOnScroll.observe(fader);
     });
   }
+
 }

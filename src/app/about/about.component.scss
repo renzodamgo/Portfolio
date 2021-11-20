@@ -1,0 +1,392 @@
+@import "../../styles.scss";
+
+.all {
+  background-color: var(--bg-color);
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$font-weights: (
+  "regular": 400,
+  "medium": 500,
+  "bold": 700,
+);
+
+#resaltar {
+  position: relative;
+  /* text-emphasis-color: #555; */
+  /* background-color: #46C6C6; */
+  /* padding: 4px; */
+  /* margin: -4px; */
+
+  &:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 105%;
+    height: 110%;
+    z-index: -1; /* Place the pseudo element right under the content */
+    /* top: -5px; */
+    left: -10px;
+    background: linear-gradient(
+      to top,
+      var(--accent-color) 100%,
+      transparent 100%
+    );
+    /* animation-delay: 700ms; */
+    animation-name: highlight;
+    animation-duration: 0.75s;
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: alternate; Make the animation run back and forth */
+  }
+
+  @keyframes highlight {
+    0% {
+      width: 0;
+      opacity: 0;
+    }
+
+
+    100% {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+}
+
+nav {
+  width: 100%;
+  position: absolute;
+  // backdrop-filter: blur(3px);
+  border: none;
+
+  ul {
+    padding: 0;
+  }
+
+  ul li {
+    list-style: none;
+    font-size: clamp(1rem, 0.125rem + 2vw, 1.25rem);
+    padding: 10px;
+  }
+
+  a {
+    display: block;
+    position: relative;
+    padding: 0.2em 0;
+
+    color: var(--text-color);
+    text-decoration: none;
+    transition-duration: 200ms;
+  }
+}
+
+img {
+  height: auto;
+  width: 50%;
+}
+
+#nav-container {
+  display: flex;
+  /*   width:600px; */
+  justify-content: space-around;
+  margin: auto;
+  font-weight: 200;
+  z-index: 1;
+}
+
+nav a:hover::after,
+nav a:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: var(--accent-color);
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+#nav-container ul {
+  display: flex;
+}
+
+.toggle-container {
+  position: absolute;
+  z-index: 9999;
+  right: 20px;
+  top: 20px;
+}
+
+#welcome-section {
+  display: flex;
+  justify-content: center;
+
+  flex-direction: column;
+  /*   align-items:center; */
+  height: 100vh;
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+#welcome-container {
+  line-height: 1.2;
+  max-width: 600px;
+  padding-bottom: 30px;
+}
+
+.links a {
+  color: var(--accent-color);
+  padding-right: 20px;
+}
+
+.links a:hover {
+  color: var(--accent-color);
+  padding-right: 20px;
+}
+
+h2 {
+  font-size: 16px;
+  color: var(--accent-color);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h3 {
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 20px;
+  padding-bottom: 20px;
+}
+
+.background-container {
+  line-height: 1.5;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.description {
+  width: 100%;
+  max-width: 700px;
+  /*   margin-top:5px; */
+  padding-left: 80px;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: clamp(1.25rem, 0.2rem + 2.4vw, 2rem);
+  color: var(--text-color);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+p {
+  font-weight: 200;
+  color: var(--text-color);
+}
+
+.skills-section h3 {
+  font-weight: 200;
+  margin-top: 13px;
+}
+
+.skills-description {
+  /*   margin-top:2px; */
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.skills-description > * {
+  flex: 1 1 140px;
+}
+
+ul li {
+  list-style: none;
+  padding-left: 0;
+  font-weight: 200;
+  padding-bottom: 4px;
+  color: var(--text-color);
+}
+
+ul {
+  padding-left: 0;
+}
+
+.experience-description {
+  font-weight: 200;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+.place-date {
+  display: flex;
+  justify-content: space-between;
+}
+
+.place-date p,
+h3 {
+  margin-bottom: 0px;
+}
+
+.place-job {
+  margin-top: 5px;
+}
+
+.des-img {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer {
+  display: flex;
+  padding-top: 40px;
+  width: 100%;
+}
+
+p a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.emoji {
+  margin-right: 10px;
+}
+
+.tag {
+  margin-right: 4px;
+  font-size: 15px;
+  line-height: 30px;
+  font-weight: 200;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  // background-color: none;
+  margin-top: 20px;
+  padding: 4px 10px;
+  transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+}
+
+.tag:hover {
+  color: white;
+  background-color: var(--accent-color);
+}
+
+@media only screen and (max-width: 1000px) {
+  .background-container {
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .tag{
+    font-size: 13px;
+  }
+
+
+  .des-img {
+    flex-direction: column;
+  }
+  img {
+    padding-top: 20px;
+    width: 100%;
+  }
+
+  .description {
+    width: auto;
+    max-width: 700px;
+    /*   margin-top:5px; */
+    padding-left: 0px;
+  }
+
+  label {
+    display: none;
+  }
+}
+
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  margin: 0;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 52px;
+  height: 27px;
+  background: grey;
+  float: right;
+  border-radius: 100px;
+  position: relative;
+}
+
+label:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: var(--accent-color);
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: rgb(75, 75, 75);
+}
+
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+  background: var(--accent-color);
+}
+
+label:active:after {
+  background: var(--accent-color);
+
+  width: 45px;
+}
+
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+.fade-in.appear {
+  opacity: 1;
+}

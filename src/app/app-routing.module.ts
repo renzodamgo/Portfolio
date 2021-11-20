@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './about/about.component';
 import { AppComponent } from './app.component';
-import { CamComponent } from './projects/cam/cam.component';
+import { ProjectsComponent } from './projects/projects.component';
+
 
 const routes: Routes = [
   {
-    path: "",component:AppComponent,
+    path: "",component:AboutComponent,
   },
   {
-    path: "projects",children:[
-      {path:"camupc",component:CamComponent}
-    ]
+    path: "projects", component: ProjectsComponent, data: {animation: 'isRight'}
   }
 ];
 
